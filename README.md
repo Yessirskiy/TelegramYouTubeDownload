@@ -1,5 +1,17 @@
 # TelegramYouTubeDownload
 This bot developed to use in Telegram.
+
+## How do I get this bot?
+#### 1. Make sure you have all the modules installed:
+To make this bot works you need few libraries installed:
+1. **pytube==10.8.4** . If you don't have this module use command *pip install pytube* to get.
+2. **pyTelegramBotAPI==3.7.9** . If you don't have this module use command *pip install pyTelegramBotAPI* to get.
+
+#### 2. Clone Repository
+1. Use command *git clone https://github.com/Yessirskiy/TelegramYouTubeDownload.git*.
+
+#### 3. Use command *python main.py* to launch bot.
+
 ## How to use launched bot?
 When you pressed "START" button you see menu of 3 buttons:
 1. Download YouTube Video
@@ -40,26 +52,14 @@ You can change all of the messages by correcting text parameter in bot.send_mess
 To make text look Italic or Bold use Markdown Format.
 
 ### Advanced usage:
-1. This bot also provides advanced function to analyze statistic:
-1. Default command to see statistic is only available for ADMIN. 
-    ADMIN_ID is linked with person who paste ID from reply message from *get_admin_id.py*
+1. This bot also provides advanced function to analyze statistic.
+Default command to see statistic is only available for ADMIN. 
+ADMIN_ID is linked with person who paste ID from reply message from *get_admin_id.py*
 2. You can see statistic by command */stats*.
-    Change this command by changing *"*stats*"* in @bot.message_handler(commands=['stats'])
-3. Stats command could shows statistic of last hour or current day.
-2. Errors reports
-1. Default exceptions are *big size of video* or *invalid link*.
-    Bot is automatically send the report about error to user.
-2. Other errors
-    If there are any other errors the occured in the process bot automatically add them to log file.
-    Each day at 0:00(UTC) bot send report(log file) of errors and amount of users.
-
-## How do I get this bot?
-#### 1. Make sure you have all the modules installed:
-To make this bot works you need few libraries installed:
-1. **pytube==10.8.4** . If you don't have this module use command *pip install pytube* to get.
-2. **pyTelegramBotAPI==3.7.9** . If you don't have this module use command *pip install pyTelegramBotAPI* to get.
-
-#### 2. Clone Repository
-1. Use command *git clone https://github.com/Yessirskiy/TelegramYouTubeDownload.git*.
-
-#### 3. Use command *python main.py* to launch bot.
+Change this command by changing *"*stats*"* in @bot.message_handler(commands=['stats'])
+Stats command could only show statistic of last hour or current day.
+3. Errors reports
+Default exceptions are *big size of video* or *invalid link*.
+Bot is automatically send the report about error to user.
+If there are any other errors the occured in the process bot automatically add them to log file.
+Each day at 0:00(UTC) bot send report(log file) of errors and amount of users.
