@@ -16,7 +16,7 @@ When you pressed "START" button you see menu of 3 buttons:
     *Set message to reply in **text_reply** function*
 
 ## How do I set my bot?
-#### To use bot you have to set at least 3 parameters:
+### To use bot you have to set at least 3 parameters:
 1. BOT_TOKEN
 
     To get this token type to @BotFather.
@@ -33,29 +33,25 @@ When you pressed "START" button you see menu of 3 buttons:
 3. ADMIN_LINK
 
     Go to Telegram and follow:
-    1. Settings
-    2. Edit Profile
-    3. Aim on Username field and press edit button
-    4. Copy link on bottom of box, after "This link opens a chat with you"
-    Paste it.
+    Settings -> Edit Profile -> Aim on Username field and press edit button -> Copy link on bottom of box, after "This link opens a chat with you" -> Paste it.
 
-#### Change reply messages:
+### Change reply messages:
 You can change all of the messages by correcting text parameter in bot.send_message() method
 To make text look Italic or Bold use Markdown Format.
 
-#### Advanced usage:
+### Advanced usage:
 1. This bot also provides advanced function to analyze statistic:
-    1. Default command to see statistic is only available for ADMIN. 
-        ADMIN_ID is linked with person who paste ID from reply message from *get_admin_id.py*
-    2. You can see statistic by command */stats*.
-        Change this command by changing *"*stats*"* in @bot.message_handler(commands=['stats'])
-    3. Stats command could shows statistic of last hour or current day.
+1. Default command to see statistic is only available for ADMIN. 
+    ADMIN_ID is linked with person who paste ID from reply message from *get_admin_id.py*
+2. You can see statistic by command */stats*.
+    Change this command by changing *"*stats*"* in @bot.message_handler(commands=['stats'])
+3. Stats command could shows statistic of last hour or current day.
 2. Errors reports
-    1. Default exceptions are *big size of video* or *invalid link*.
-        Bot is automatically send the report about error to user.
-    2. Other errors
-        If there are any other errors the occured in the process bot automatically add them to log file.
-        Each day at 0:00(UTC) bot send report(log file) of errors and amount of users.
+1. Default exceptions are *big size of video* or *invalid link*.
+    Bot is automatically send the report about error to user.
+2. Other errors
+    If there are any other errors the occured in the process bot automatically add them to log file.
+    Each day at 0:00(UTC) bot send report(log file) of errors and amount of users.
 
 ## How do I get this bot?
 #### 1. Make sure you have all the modules installed:
