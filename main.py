@@ -5,8 +5,8 @@ from threading import Thread
 import time
 
 
-BOT_TOKEN = '' # Your Bot Token Here
-ADMIN_ID = 0 # Your Admin Id Here
+BOT_TOKEN = '1874455621:AAE2hkUQEn5XRoJeXV2-eJnMi_Lq5DtJvXQ' # Your Bot Token Here
+ADMIN_ID = 392911676 # Your Admin Id Here
 ADMIN_LINK = "https://t.me/dobrydnevk" # Link On Your Telegram Profile
 bot = telebot.TeleBot(BOT_TOKEN)
 users_per_day = []
@@ -49,7 +49,7 @@ def get_url(message):
         url = message.text
         video = YouTube(url)
         for i in video.streams:
-            if i.resolution != None and 'mp4a.40.2' or 'mp4v.20.3' in i.codecs:
+            if i.resolution != None and 'mp4a.40.2' in i.codecs:
                 users_info[message.chat.id].add(int(str(i.resolution).replace("p", "")))
         users_info[message.chat.id] = sorted(users_info[message.chat.id])
         bot.send_message(message.chat.id, text = "_Choose resolution:_", reply_markup = resolution_buttons(users_info[message.chat.id], message), parse_mode="Markdown")
@@ -70,6 +70,7 @@ def get_url(message):
                 del users_info[message.chat.id]    
                 break
     except Exception as e:
+        print(str(e))
         if "regex_search: could not find match for" in str(e):
             bot.send_message(message.chat.id, text="_⛔ Incorrect link on video. Make sure you send link on video from YouTube.com_", parse_mode="Markdown")
             del users_info[message.chat.id]
@@ -87,11 +88,11 @@ def create_thread(message):
 @bot.message_handler(commands=['start'])
 def greetings(message):
     main_buttons_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    get_url_btn = telebot.types.KeyboardButton(text = "Download YouTube video")
+    get_url_btn = telebot.types.KeyboardButton(text = "Download YouTube Video")
     get_support_btn = telebot.types.KeyboardButton(text = "Support")
     get_info_btn = telebot.types.KeyboardButton(text="About Project")
     main_buttons_markup.add(get_url_btn, get_support_btn, get_info_btn)
-    bot.send_message(message.chat.id, text="_🙋 Hey, use button in menu below to donwload video from YouTube or to text to support😚_", parse_mode="Markdown", reply_markup=main_buttons_markup)
+    bot.send_message(message.chat.id, text="_🙋 Hey, use button in menu below to download video from YouTube or to text to support😚_", parse_mode="Markdown", reply_markup=main_buttons_markup)
 
 
 @bot.message_handler(commands=['stats'])
@@ -109,12 +110,12 @@ def admin(message): # Admin functions
 
 @bot.message_handler(content_types=['text'])
 def text_reply(message):
-    if message.text == "Скачать Видео YouTube":
+    if message.text == "Download YouTube Video":
         bot.send_message(message.chat.id, text="_🌈 Send YouTube video link in the next message._", parse_mode="Markdown")
         bot.register_next_step_handler(message, create_thread)
-    if message.text == "Поддержка":
+    if message.text == "Support":
         bot.send_message(message.chat.id, text="_📞 Text here to contact with support: {} _".format(ADMIN_LINK), parse_mode="Markdown")
-    if message.text == "О Проекте":
+    if message.text == "About Project":
         bot.send_message(message.chat.id, text="_📝 Данный бот написан:_ \n * {} * \n_🔧 Modules from project:_ \n*  https://github.com/pytube/pytube*\n*  https://github.com/eternnoir/pyTelegramBotAPI*".format(ADMIN_LINK), parse_mode="Markdown")
 
 
@@ -130,7 +131,7 @@ def callback_handler(call):
         for id in users_per_hour:
             message += "_{}_\n".format(id)
         bot.send_message(ADMIN_ID, text=message, parse_mode = "Markdown")
-    if (int(call.data)%120 == 0 and int(call.data)/120 <= 12) or call.data == "144":
+    if call.data.isdigit() and (int(call.data)%120 == 0 and int(call.data)/120 <= 12) or call.data == "144":
         users_info[call.message.chat.id] = call.data + "p"
 
 
