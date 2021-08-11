@@ -1,5 +1,7 @@
 # TelegramYouTubeDownload
 This bot developed to use in Telegram.
+For all questions occured while setting up
+or new ideas - https://t.me/dobrydnevk
 
 ## How do I get this bot?
 #### 1. Make sure you have all the modules installed:
