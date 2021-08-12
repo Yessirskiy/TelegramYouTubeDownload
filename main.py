@@ -5,8 +5,8 @@ from threading import Thread
 import time
 
 
-BOT_TOKEN = '1874455621:AAE2hkUQEn5XRoJeXV2-eJnMi_Lq5DtJvXQ' # Your Bot Token Here
-ADMIN_ID = 392911676 # Your Admin Id Here
+BOT_TOKEN = '' # Your Bot Token Here
+ADMIN_ID = 0 # Your Admin Id Here
 ADMIN_LINK = "https://t.me/dobrydnevk" # Link On Your Telegram Profile
 bot = telebot.TeleBot(BOT_TOKEN)
 users_per_day = []
